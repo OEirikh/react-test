@@ -1,0 +1,22 @@
+.alert {
+  line-height: 1.5;
+  padding: 10px 20px;
+  color: primary-text-color;
+  background-color: gray;
+}
+
+.error {
+  /* свойство css модулей, розширяет стили указаного класа на етот клас */
+  composes: alert;
+  background-color: red;
+}
+
+.warning {
+  composes: alert;
+  background-color: orange;
+}
+
+.success {
+  composes: alert;
+  background-color: green;
+}

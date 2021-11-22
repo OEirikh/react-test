@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 // импорт дефолтной картинки
 import defaultImg from './default.jpg';
+import s from './Paiting.module.css';
 
 console.log(defaultImg);
 
@@ -14,8 +15,13 @@ export default function Painting({
   quantity,
 }) {
   return (
-    <div>
-      <img src={imageUrl ?? defaultImg} alt={title} width="480" />
+    <div className={s.container}>
+      <img
+        className={s.img}
+        src={imageUrl ?? defaultImg}
+        alt={title}
+        width="480"
+      />
       <h2>{title}</h2>
       <p>
         Автор: <a href={authorProfile}>{authorName}</a>

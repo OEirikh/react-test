@@ -4,6 +4,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 
+// імпорт нормалайза стилей
+import 'modern-normalize/modern-normalize.css';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.querySelector('#root'),
+);
+
 // ---------------------------------------------------------------
 // const element = React.createElement('div', {
 //   a: 5,
@@ -33,10 +43,3 @@ console.log(jsxElement);
 // ReactDOM.render(jsxElement, document.querySelector('#root'));
 
 // ---------------------------------------------------------------
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.querySelector('#root'),
-);
