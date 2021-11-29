@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types';
-import Painting from './Painting/Painting';
+import Painting from '../Painting/Painting';
+import s from './PaintingList.module.css';
 
 function paintingList({ items }) {
   return (
-    <ul>
+    <ul className={s.flex}>
       {items.map(item => (
         <li // обязательний пропc (key) для колекций, является уникальним идентифиатором, індекс масива можно использовать только в тех колекциях в которих ничего не удаляется,должен стоять на самом корневом елементе(когда ви что-то возвращаете из "elem.map")
           key={item.id}
+          className={s.li}
         >
           <Painting
             imageUrl={item.url}

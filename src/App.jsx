@@ -1,7 +1,8 @@
 import Section from './components/Section';
-import PaintingList from './components/PaintingList';
+import PaintingList from './components/PaintingList/PaintingList';
 import ColorPicker from './components/ColorPicker/ColorPicker';
 import Alert from './components/Alert/Alert';
+import Counter from './components/Counter/Counter';
 
 import paintings from './paintings.json';
 
@@ -27,18 +28,21 @@ export default function App() {
       { если ето то рендери ето, а если нет то другое }
       { isOnline ? 'Онлайн' : 'Офлайн'
       -----------------------------*/}
+      <Section title="Состояние компонента">
+        <Counter initialValue={10} />
+      </Section>
 
-      {/* <PaintingList items={paintings} /> */}
-
-      <Section title="Top weeks">
+      <Section title="Карточки продуктов">
         <PaintingList items={paintings} />
       </Section>
+
       <Section title="Color Picker">
         <ColorPicker options={colorPickerOptions} />
       </Section>
-      <Alert text="все 3.14здєц" type="success" />
-      <Alert text="все 3.14здєц" type="warning" />
-      <Alert text="все 3.14здєц" type="error" />
+
+      <Alert text="success" type="success" />
+      <Alert text="warning" type="warning" />
+      <Alert text="error" type="error" />
     </div>
   );
 }
