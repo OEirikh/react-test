@@ -3,6 +3,7 @@ import PaintingList from './components/PaintingList/PaintingList';
 import ColorPicker from './components/ColorPicker/ColorPicker';
 import Alert from './components/Alert/Alert';
 import Counter from './components/Counter/Counter';
+import Dropdown from './components/Dropdown/Dropdown';
 
 import paintings from './paintings.json';
 
@@ -30,6 +31,10 @@ export default function App() {
       -----------------------------*/}
       <Section title="Состояние компонента">
         <Counter initialValue={10} />
+      </Section>
+
+      <Section title="Випадающее меню">
+        <Dropdown />
       </Section>
 
       <Section title="Карточки продуктов">

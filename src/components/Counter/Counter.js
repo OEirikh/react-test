@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Counter.module.css';
+import Controls from './Controls/Controls';
 
 class Counter extends React.Component {
   static defaultProps = {
@@ -19,6 +20,7 @@ class Counter extends React.Component {
   //     value: 0,
   //   };
   // }
+
   // при изменении state создается новий обект
   state = {
     value: this.props.initialValue,
@@ -41,14 +43,11 @@ class Counter extends React.Component {
     return (
       <div className={s.counter}>
         <span className={s.value}>{this.state.value}</span>
-        <div className={s.controls}>
-          <button type="button" onClick={this.hendleIncrement}>
-            Увеличить на 1
-          </button>
-          <button type="button" onClick={this.hendleDecrement}>
-            Уменьшить на 1
-          </button>
-        </div>
+
+        <Controls
+          onIncrement={this.hendleIncrement}
+          onDecrement={this.hendleDecrement}
+        />
       </div>
     );
   }
