@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/react-test/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/react-test/static/js/main.18b0861a.chunk.js",
-    "main.js.map": "/react-test/static/js/main.18b0861a.chunk.js.map",
-    "runtime-main.js": "/react-test/static/js/runtime-main.0f4fa961.js",
-    "runtime-main.js.map": "/react-test/static/js/runtime-main.0f4fa961.js.map",
-    "static/js/2.92e4decc.chunk.js": "/react-test/static/js/2.92e4decc.chunk.js",
-    "static/js/2.92e4decc.chunk.js.map": "/react-test/static/js/2.92e4decc.chunk.js.map",
-    "static/js/3.cea0d64a.chunk.js": "/react-test/static/js/3.cea0d64a.chunk.js",
-    "static/js/3.cea0d64a.chunk.js.map": "/react-test/static/js/3.cea0d64a.chunk.js.map",
+    "main.css": "/react-test/static/css/main.6e145698.chunk.css",
+    "main.js": "/react-test/static/js/main.25de191f.chunk.js",
+    "main.js.map": "/react-test/static/js/main.25de191f.chunk.js.map",
+    "runtime-main.js": "/react-test/static/js/runtime-main.66aa7f8b.js",
+    "runtime-main.js.map": "/react-test/static/js/runtime-main.66aa7f8b.js.map",
+    "static/css/2.bc922b9c.chunk.css": "/react-test/static/css/2.bc922b9c.chunk.css",
+    "static/js/2.8b40e62b.chunk.js": "/react-test/static/js/2.8b40e62b.chunk.js",
+    "static/js/2.8b40e62b.chunk.js.map": "/react-test/static/js/2.8b40e62b.chunk.js.map",
     "index.html": "/react-test/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "/react-test/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.92e4decc.chunk.js.LICENSE.txt": "/react-test/static/js/2.92e4decc.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/react-test/static/media/logo.6ce24c58.svg"
+    "static/css/2.bc922b9c.chunk.css.map": "/react-test/static/css/2.bc922b9c.chunk.css.map",
+    "static/css/main.6e145698.chunk.css.map": "/react-test/static/css/main.6e145698.chunk.css.map",
+    "static/js/2.8b40e62b.chunk.js.LICENSE.txt": "/react-test/static/js/2.8b40e62b.chunk.js.LICENSE.txt",
+    "static/media/default.2e01288c.jpg": "/react-test/static/media/default.2e01288c.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0f4fa961.js",
-    "static/js/2.92e4decc.chunk.js",
-    "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.18b0861a.chunk.js"
+    "static/js/runtime-main.66aa7f8b.js",
+    "static/css/2.bc922b9c.chunk.css",
+    "static/js/2.8b40e62b.chunk.js",
+    "static/css/main.6e145698.chunk.css",
+    "static/js/main.25de191f.chunk.js"
   ]
 }
