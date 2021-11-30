@@ -40,9 +40,10 @@ class Counter extends React.Component {
 
   // метод класса render() возвращяет разметку и только разметку(рендерит ее)
   render() {
+    const { value } = this.state;
     return (
       <div className={s.counter}>
-        <span className={s.value}>{this.state.value}</span>
+        <span className={s.value}>{value}</span>
 
         <Controls
           onIncrement={this.hendleIncrement}

@@ -3,7 +3,7 @@ import s from './Dropdown.module.css';
 
 class Dropdown extends Component {
   state = {
-    visible: true,
+    visible: false,
   };
 
   togle = () => {
@@ -24,20 +24,25 @@ class Dropdown extends Component {
   //   });
   // };
 
-  render = () => (
-    <div className={s.Dropdown}>
-      <button type="button" className="Dropdown__toggle" onClick={this.togle}>
-        {this.state.visible ? 'Скрить' : 'Показать'}
-      </button>
+  render() {
+    const { visible } = this.state;
 
-      {/* <button type="button" className="Dropdown__toggle" onClick={this.hide}>
+    return (
+      <div className={s.Dropdown}>
+        <button type="button" className="Dropdown__toggle" onClick={this.togle}>
+          {visible ? 'Скрить' : 'Показать'}
+        </button>
+
+        {/* <button type="button" className="Dropdown__toggle" onClick={this.hide}>
         Скрить
       </button> */}
 
-      {/* <div className={s.Menu}>MENU</div> */}
+        {/* <div className={s.Menu}>MENU</div> */}
 
-      {this.state.visible && <div className={s.Menu}>MENU</div>}
-    </div>
-  );
+        {visible && <div className={s.Menu}>MENU</div>}
+      </div>
+    );
+  }
 }
+
 export default Dropdown;

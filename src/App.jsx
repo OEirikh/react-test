@@ -4,7 +4,6 @@ import ColorPicker from './components/ColorPicker/ColorPicker';
 import Alert from './components/Alert/Alert';
 import Counter from './components/Counter/Counter';
 import Dropdown from './components/Dropdown/Dropdown';
-
 import paintings from './paintings.json';
 
 const colorPickerOptions = [
@@ -29,6 +28,11 @@ export default function App() {
       { если ето то рендери ето, а если нет то другое }
       { isOnline ? 'Онлайн' : 'Офлайн'
       -----------------------------*/}
+
+      <Section title="Карточки продуктов">
+        <PaintingList items={paintings} />
+      </Section>
+
       <Section title="Состояние компонента">
         <Counter initialValue={10} />
       </Section>
@@ -37,17 +41,13 @@ export default function App() {
         <Dropdown />
       </Section>
 
-      <Section title="Карточки продуктов">
-        <PaintingList items={paintings} />
-      </Section>
-
       <Section title="Color Picker">
         <ColorPicker options={colorPickerOptions} />
       </Section>
 
-      <Alert text="success" type="success" />
+      {/* <Alert text="success" type="success" />
       <Alert text="warning" type="warning" />
-      <Alert text="error" type="error" />
+      <Alert text="error" type="error" /> */}
     </div>
   );
 }

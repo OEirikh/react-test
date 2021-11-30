@@ -1,25 +1,53 @@
+import { Component } from 'react';
 import s from './ColorPicker.module.css';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
-function ColorPicker({ options }) {
-  return (
-    <div className={s.container}>
-      <h2 className={s.title}>ColorPicker</h2>
-      <div>
-        {options.map(option => (
-          <span
-            className={s.option}
-            key={option.id}
-            style={{ backgroundColor: option.color }}
-          ></span>
-        ))}
+class ColorPicker extends Component {
+  state = {
+    activeOptionIdx: 0,
+  };
+
+  setActiveIdx = index => {
+    this.setState({ activeOptionIdx: index });
+  };
+
+  makeOptionClassName = index => {
+    const optionClasses = [s.option];
+    if (this.state.activeOptionIdx === index) {
+      optionClasses.push(s.active);
+    }
+    return optionClasses.join(' ');
+  };
+
+  render() {
+    const { options } = this.props;
+    const { activeOptionIdx } = this.state;
+    const { label } = options[activeOptionIdx];
+
+    return (
+      <div className={s.container}>
+        <h2 className={s.title}>ColorPicker</h2>
+        <p>цвет: {label}</p>
+        <div>
+          {options.map(({ color, id }, index) => (
+            <button
+              type="button"
+              className={this.makeOptionClassName(index)}
+              key={id}
+              style={{ backgroundColor: color }}
+              onClick={() => {
+                this.setActiveIdx(index);
+              }}
+            ></button>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default ColorPicker;
 
-ColorPicker.prototype = {
-  options: PropTypes.object.isRequired,
-};
+// ColorPicker.prototype = {
+//   options: PropTypes.object.isRequired,
+// };
