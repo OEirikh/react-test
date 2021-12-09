@@ -7,6 +7,8 @@ import App from './App';
 // імпорт нормалайза стилей
 import 'modern-normalize/modern-normalize.css';
 
+import './styles/base.scss';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

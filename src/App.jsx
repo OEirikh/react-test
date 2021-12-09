@@ -1,53 +1,74 @@
+import React, { Component } from 'react';
 import Section from './components/Section';
 import PaintingList from './components/PaintingList/PaintingList';
 import ColorPicker from './components/ColorPicker/ColorPicker';
+import colorPickerOptions from './components/ColorPicker/ColorPickerOptions.json';
 import Alert from './components/Alert/Alert';
-import Counter from './components/Counter/Counter';
-import Dropdown from './components/Dropdown/Dropdown';
+import Counter from './components/Counter';
+import Dropdown from './components/Dropdown';
 import paintings from './paintings.json';
+import InitialTodos from './components/ToDoList/TodoList.json';
+import ToDoList from './components/ToDoList';
+import Form from './components/Form/Form';
 
-const colorPickerOptions = [
-  { id: '01', label: 'red', color: '#F44336' },
-  { id: '02', label: 'green', color: '#4CAF50' },
-  { id: '03', label: 'blue', color: '#2196F3' },
-  { id: '04', label: 'grey', color: '#607D8B' },
-  { id: '05', label: 'pink', color: '#E91E63' },
-  { id: '06', label: 'indigo', color: '#3F51B5' },
-];
+class App extends Component {
+  state = {
+    todos: InitialTodos,
+  };
 
-export default function App() {
-  // ето
-  // const isOnline = false;
-  return (
-    <div>
-      {/* 
-      -------рендер по условию-----
-      если ето то рендери ето }
-      { isOnline && 'Онлайн' }
+  deleteTodo = todoId => {
+    this.setState(ps => ({
+      todos: ps.todos.filter(todo => todo.id !== todoId),
+    }));
+  };
 
-      { если ето то рендери ето, а если нет то другое }
-      { isOnline ? 'Онлайн' : 'Офлайн'
-      -----------------------------*/}
+  formSubmitData = data => console.log(data);
 
-      <Section title="Карточки продуктов">
-        <PaintingList items={paintings} />
-      </Section>
+  render() {
+    const { todos } = this.state;
+    const { deleteTodo, formSubmitData } = this;
 
-      <Section title="Состояние компонента">
-        <Counter initialValue={10} />
-      </Section>
+    const countComplitedTodo = todos.reduce(
+      (acc, todo) => (todo.completed ? acc + 1 : acc),
+      0,
+    );
 
-      <Section title="Випадающее меню">
-        <Dropdown />
-      </Section>
+    return (
+      <div>
+        <Section title="Форма">
+          <Form onSubmit={formSubmitData} />
+        </Section>
 
-      <Section title="Color Picker">
-        <ColorPicker options={colorPickerOptions} />
-      </Section>
+        <Section title="ToDoList">
+          <div>
+            <p>Total Todo: {todos.length}</p>
+            <p>Complited Todo: {countComplitedTodo}</p>
+          </div>
+          <ToDoList todos={todos} onDeleteTodo={deleteTodo} />
+        </Section>
 
-      {/* <Alert text="success" type="success" />
-      <Alert text="warning" type="warning" />
-      <Alert text="error" type="error" /> */}
-    </div>
-  );
+        <Section title="Карточки продуктов">
+          <PaintingList items={paintings} />
+        </Section>
+
+        <Section title="Состояние компонента">
+          <Counter initialValue={10} />
+        </Section>
+
+        <Section title="Випадающее меню">
+          <Dropdown />
+        </Section>
+
+        <Section title="Color Picker">
+          <ColorPicker options={colorPickerOptions} />
+        </Section>
+
+        <Alert text="success" type="success" />
+        <Alert text="warning" type="warning" />
+        <Alert text="error" type="error" />
+      </div>
+    );
+  }
 }
+
+export default App;

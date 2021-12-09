@@ -2,7 +2,7 @@ import s from './Alert.module.css';
 import PropTypes from 'prop-types';
 
 function Alert({ text, type }) {
-  console.log([type]);
+  // console.log([type]);
   return (
     <p role="alert" className={`${s[type]}`}>
       {text}
