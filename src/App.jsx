@@ -8,8 +8,8 @@ import Alert from './components/Alert/Alert';
 import Counter from './components/Counter';
 import Dropdown from './components/Dropdown';
 import paintings from './paintings.json';
-import InitialTodos from './components/ToDoList/TodoList.json';
-import ToDoList from './components/ToDoList';
+import InitialTodos from './components/TodoList/TodoList.json';
+import TodoList from './components/TodoList';
 import TodoEditor from './components/TodoEditor';
 import TodoFiltr from './components/TodoFiltr';
 import Form from './components/Form/Form';
@@ -111,7 +111,7 @@ class App extends Component {
 
           <TodoFiltr value={filter} onChange={changeFiltr} />
 
-          <ToDoList
+          <TodoList
             todos={visibleTodo}
             onDeleteTodo={deleteTodo}
             onTogleCompleted={togleCompleted}
