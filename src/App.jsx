@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 import Section from './components/Section';
 import PaintingList from './components/PaintingList/PaintingList';
 import ColorPicker from './components/ColorPicker/ColorPicker';
@@ -9,11 +10,27 @@ import Dropdown from './components/Dropdown';
 import paintings from './paintings.json';
 import InitialTodos from './components/ToDoList/TodoList.json';
 import ToDoList from './components/ToDoList';
+import TodoEditor from './components/TodoEditor';
+import TodoFiltr from './components/TodoFiltr';
 import Form from './components/Form/Form';
 
 class App extends Component {
   state = {
     todos: InitialTodos,
+    filter: '',
+  };
+
+  addTodo = text => {
+    const todo = {
+      id: shortid.generate(),
+      text,
+      completed: false,
+    };
+    // console.log(todo);
+
+    this.setState(({ todos }) => ({
+      todos: [todo, ...todos],
+    }));
   };
 
   deleteTodo = todoId => {
@@ -22,16 +39,61 @@ class App extends Component {
     }));
   };
 
+  changeFiltr = ({ currentTarget }) => {
+    this.setState({ filter: currentTarget.value });
+  };
+
+  getVisibleTodos = () => {
+    const { filter, todos } = this.state;
+    const normalasingFiltr = filter.toLowerCase();
+
+    return todos.filter(todo =>
+      todo.text.toLowerCase().includes(normalasingFiltr),
+    );
+  };
+
+  getComplitedTodos = () => {
+    const { todos } = this.state;
+    return todos.reduce((acc, todo) => (todo.completed ? acc + 1 : acc), 0);
+  };
+
+  togleCompleted = todoId => {
+    // console.log(todoId);
+    // this.setState(ps => ({
+    //   todos: ps.todos.map(todo => {
+    //     if (todo.id === todoId) {
+    //       console.log('Нашли нужний todo');
+    //       return {
+    //         ...todo,
+    //         completed: !todo.completed,
+    //       };
+    //     }
+    //     return todo;
+    //   }),
+    // }));
+    this.setState(({ todos }) => ({
+      todos: todos.map(todo =>
+        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo,
+      ),
+    }));
+  };
+
   formSubmitData = data => console.log(data);
 
   render() {
-    const { todos } = this.state;
-    const { deleteTodo, formSubmitData } = this;
+    const { todos, filter } = this.state;
+    const {
+      addTodo,
+      deleteTodo,
+      formSubmitData,
+      togleCompleted,
+      changeFiltr,
+      getVisibleTodos,
+      getComplitedTodos,
+    } = this;
 
-    const countComplitedTodo = todos.reduce(
-      (acc, todo) => (todo.completed ? acc + 1 : acc),
-      0,
-    );
+    const countComplitedTodo = getComplitedTodos();
+    const visibleTodo = getVisibleTodos();
 
     return (
       <div>
@@ -44,7 +106,16 @@ class App extends Component {
             <p>Total Todo: {todos.length}</p>
             <p>Complited Todo: {countComplitedTodo}</p>
           </div>
-          <ToDoList todos={todos} onDeleteTodo={deleteTodo} />
+
+          <TodoEditor onSubmit={addTodo} />
+
+          <TodoFiltr value={filter} onChange={changeFiltr} />
+
+          <ToDoList
+            todos={visibleTodo}
+            onDeleteTodo={deleteTodo}
+            onTogleCompleted={togleCompleted}
+          />
         </Section>
 
         <Section title="Карточки продуктов">

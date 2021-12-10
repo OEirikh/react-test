@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import classNames from 'classnames';
 import s from './ColorPicker.module.css';
 // import PropTypes from 'prop-types';
 
@@ -12,11 +13,17 @@ class ColorPicker extends Component {
   };
 
   makeOptionClassName = index => {
-    const optionClasses = [s.option];
-    if (this.state.activeOptionIdx === index) {
-      optionClasses.push(s.active);
-    }
-    return optionClasses.join(' ');
+    // const optionClasses = [s.option];
+    // console.log([s.option]);
+    // if (this.state.activeOptionIdx === index) {
+    //   optionClasses.push(s.active);
+    // }
+    // return optionClasses.join(' ');
+    // const active = s.active;
+
+    return classNames(s.option, {
+      [`${s.active}`]: this.state.activeOptionIdx === index,
+    });
   };
 
   render() {
