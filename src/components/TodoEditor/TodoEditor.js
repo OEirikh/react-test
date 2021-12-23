@@ -5,23 +5,25 @@ class TodoEditor extends Component {
   state = {
     message: '',
   };
-  hendleChange = e => {
+
+  handleChange = e => {
     this.setState({ message: e.currentTarget.value });
   };
 
-  hendleSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit(this.state.message);
     this.setState({ message: '' });
   };
 
   render() {
+    const { handleSubmit, handleChange } = this;
     return (
-      <form className="TodoEditor" onSubmit={this.hendleSubmit}>
+      <form className="TodoEditor" onSubmit={handleSubmit}>
         <textarea
           className="TodoEditor__textarea"
           value={this.state.message}
-          onChange={this.hendleChange}
+          onChange={handleChange}
         ></textarea>
         <button type="submit" className="TodoEditor__button">
           Создать TODO

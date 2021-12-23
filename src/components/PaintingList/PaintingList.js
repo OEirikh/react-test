@@ -24,7 +24,7 @@ function paintingList({ items }) {
   );
 }
 
-console.log(paintingList);
+// console.log(paintingList);
 
 paintingList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({ id: PropTypes.string })),

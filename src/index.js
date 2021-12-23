@@ -26,20 +26,20 @@ ReactDOM.render(
 // const elem1 = React.createElement('span', { children: 'Привет' }); - создание елемента с помощю React.createElement
 
 // создание елемента с помощю jsx - xml-подобний синтаксис(у одинарних тегов должен бить закривающий слеш/ )
-const elem1 = <span>Привет </span>;
+// const elem1 = <span>Привет </span>;
 
 // const elem2 = React.createElement('span', { children: 'мир' });
-const elem2 = <span>мир</span>;
+// const elem2 = <span>мир</span>;
 
-console.log(elem1, elem2);
+// console.log(elem1, elem2);
 
-const jsxElement = (
-  <div>
-    {elem1}
-    {elem2}
-  </div>
-);
-console.log(jsxElement);
+// const jsxElement = (
+//   <div>
+//     {elem1}
+//     {elem2}
+//   </div>
+// );
+// console.log(jsxElement);
 
 // рендер разметки в DOM
 // ReactDOM.render(jsxElement, document.querySelector('#root'));

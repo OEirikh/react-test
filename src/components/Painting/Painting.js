@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import defaultImg from './default.jpg';
 import s from './Paiting.module.css';
 
-console.log(defaultImg);
+// console.log(defaultImg);
 
 export default function Painting({
   imageUrl = defaultImg,
