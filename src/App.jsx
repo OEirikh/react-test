@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import shortid from 'shortid';
+
 import Section from './components/Section';
 import Container from './components/Container';
 import PaintingList from './components/PaintingList/PaintingList';
@@ -18,6 +19,10 @@ import Modal from './components/Modal';
 import Clock from './components/Clock';
 import Tabs from './components/Tabs';
 import tabs from './components/Tabs/tabs.json';
+import { Filter } from './components/Filter/Filter.jsx';
+import IconButton from './components/IconButton';
+// імпорт svg як компонент реакта
+import { ReactComponent as CloseIcon } from './icons/delete.svg';
 
 class App extends Component {
   state = {
@@ -131,12 +136,19 @@ class App extends Component {
     return (
       <div>
         <Container>
+          <Section>
+            <Filter />
+          </Section>
           <Tabs items={tabs} />
           <button type="button" onClick={togleModal}>
-            Open/Close Time
+            Open/Close Clock
           </button>
           {showModal && (
             <Modal onClose={togleModal}>
+              <IconButton onClick={togleModal} aria-label="Закрить модалку">
+                {/* Кнопка іконка */}
+                <CloseIcon width="30" fill="#fff" />
+              </IconButton>
               <Clock />
             </Modal>
           )}
