@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
 
+// PureComponent - чистий компонент, под капотом реализовано  shouldComponentUpdate()
+//   - происхходит поверхностная (первая вложеность) проверка пропсов и стейта.
+
 export default class Tabs extends PureComponent {
   state = {
     activeTabIdx: 0,
